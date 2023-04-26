@@ -20,7 +20,6 @@
           <% if user_signed_in? %>
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
-              <%= link_to "New Proto", new_prototype_path, class: :nav__btn %>
             </div>
           <%# // ログインしているときは上記を表示するようにしましょう %>
 
@@ -39,5 +38,6 @@
     <footer class="footer">
       <p class="copyright">Copyright © Rhabit All rights reserved.</p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </body>
 </html>

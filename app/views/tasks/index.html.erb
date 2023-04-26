@@ -4,18 +4,76 @@
       <%= image_tag 'rabbit.png' %>
     </div>
     <div class="status-form">
-      <div class="user-name">テスト君</div>
+      <div class="user-name"><%= current_user.nickname %></div>
       <div class="coins">枚数</div>
       <div class="gacha">ガチャを回す</div>
       <div class="clothes">アイテム</div>
       <div class="friends">フレンド</div>
     </div>
   </div>
+  
   <div class="lower-contents">
     <div class="tasks">
-      <div class="task">タスク１</div>
-      <div class="task">タスク２</div>
+      <div class="task-bar">
+          <div id="life-frame">
+          <div id="life-bar"></div>
+          <div id="life-mark"></div>
+      </div>
     </div>
-    <div class="add-btn">add</div>
+
+    <div class="task">
+      <% @tasks.each do |task| %>
+      <div class="task-mass">
+          <div id="decrease-btn" onclick="alterLife( -10 )">-</div>
+          <div id="task-title"><%= task.task_name %></div>
+          <div id="increase-btn" onclick="alterLife( 10 )">+</div>
+      </div>
+      <% end %>
+    </div>
+    
+      
+      <script>
+          const lifeBar = document.getElementById('life-bar')         // ライフバー
+          const lifeMark = document.getElementById('life-mark')       // ライフの光部分
+          const increaseBtn = document.getElementById('increase-btn') // + ボタン
+          const decreaseBtn = document.getElementById('decrease-btn') // - ボタン
+          let life =   0                                              // ライフ初期値
+          lifeBar.style.width = "0%"                                  // ライフ初期幅
+      
+          // *** ライフ変更処理 ***
+          function alterLife( value ){
+              // lifeの値を算出する
+              life += value 
+              if ( life <= 0 ){
+                  // 算出の結果 0 以下になった場合
+                  life = 0
+                  // 0.3秒後に光部分を非表示にする
+                  setTimeout(function(){
+                      lifeMark.style.visibility = 'hidden'
+                  }, 300)
+              } else {
+                  // 算出の結果 100 を超過した場合
+                  if ( life > 100 ) {
+                      life = 100
+                  }
+                  // 光部分を表示する
+                  lifeMark.style.visibility = 'visible'
+              }
+              // スタイル(幅)を更新する
+              lifeBar.style.width = life + "%"
+          }
+      </script>
+    <div class="add-btn">
+      <button class="open-form-button">add</button>
+      <div class="modal-overlay">
+          <form class="modal-form">
+              <p>
+              タスク <input type="text" name="task_name">
+              </p>
+              <button type="button" class="submit-button">登録</button>
+              <button type="button" class="close-button">閉じる</button>
+          </form>
+      </div> 
+    </div>
   </div>
 </div>
