@@ -5,7 +5,7 @@
     </div>
     <div class="status-form">
       <div class="user-name"><%= current_user.nickname %></div>
-      <div class="coins">枚数</div>
+      <div id="coins">0</div>
       <div class="gacha">ガチャを回す</div>
       <div class="clothes">アイテム</div>
       <div class="friends">フレンド</div>
@@ -24,21 +24,56 @@
     <div class="task">
       <% @tasks.each do |task| %>
       <div class="task-mass">
-          <div id="decrease-btn" onclick="alterLife( -10 )">-</div>
+          <div class="decrease-btn">-</div>
           <div id="task-title"><%= task.task_name %></div>
-          <div id="increase-btn" onclick="alterLife( 10 )">+</div>
+          <div class="increase-btn">+</div>
       </div>
       <% end %>
+
+      <div class="add-task">
+      <%= render partial: 'addtask', locals: { task: @task} %>
+      </div>
+
+    </div>
+
+    <div class="add-btn">
+      <button class="open-form-button">add</button>
+      <div class="modal-overlay">
+          <form class="modal-form" action="/tasks" data-remote="true" method="post">
+              <p>
+              タスク <input type="text" name="task_name">
+              </p>
+              <button to class="submit-button" , remote:true>登録</button>
+              <button type="button" class="close-button">閉じる</button>
+          </form>
+      </div> 
     </div>
     
       
       <script>
           const lifeBar = document.getElementById('life-bar')         // ライフバー
           const lifeMark = document.getElementById('life-mark')       // ライフの光部分
-          const increaseBtn = document.getElementById('increase-btn') // + ボタン
-          const decreaseBtn = document.getElementById('decrease-btn') // - ボタン
+          const increaseBtn = document.getElementsByClassName('increase-btn') // + ボタン
+          for(i=0;i<increaseBtn.length;i++){
+            increaseBtn[i].onclick = function () {
+            alterLife( 10 )
+            count_value += 1;
+            count_disp.innerHTML = count_value;
+           } 
+          }
+          const decreaseBtn = document.getElementsByClassName('decrease-btn') // - ボタン
+          for(i=0;i<decreaseBtn.length;i++){
+            decreaseBtn[i].onclick = function () {
+              alterLife( -10 )
+            count_value -= 1;
+            count_disp.innerHTML = count_value;
+           } 
+          }
+
           let life =   0                                              // ライフ初期値
           lifeBar.style.width = "0%"                                  // ライフ初期幅
+          var count_value = 0
+          var count_disp = document.getElementById("coins"); 
       
           // *** ライフ変更処理 ***
           function alterLife( value ){
@@ -62,18 +97,7 @@
               // スタイル(幅)を更新する
               lifeBar.style.width = life + "%"
           }
+        
       </script>
-    <div class="add-btn">
-      <button class="open-form-button">add</button>
-      <div class="modal-overlay">
-          <form class="modal-form">
-              <p>
-              タスク <input type="text" name="task_name">
-              </p>
-              <button type="button" class="submit-button">登録</button>
-              <button type="button" class="close-button">閉じる</button>
-          </form>
-      </div> 
-    </div>
   </div>
 </div>

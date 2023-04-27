@@ -15,8 +15,8 @@ submitButton.addEventListener("click", function() {
 
     $(function(){
       $.ajax({
-        url: '/tasks',
-        type: 'POST',
+        url: '/',
+        type: 'GET',
         dataType: 'json',
         async: true,
         data: {

@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    @task = params[:task]
   end
 
   def create
@@ -10,7 +11,7 @@ class TasksController < ApplicationController
     if @task.save
       respond_to do |format|
         format.html { redirect_to root_path }
-        format.json
+        format.js
       end
     else
       render 'index'

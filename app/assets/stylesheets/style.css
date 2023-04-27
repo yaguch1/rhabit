@@ -200,7 +200,7 @@ a {
   justify-content: space-around;
 }
 
-#increase-btn,#decrease-btn {
+.increase-btn,.decrease-btn {
   margin-top: 10px;
   width: 30px;
   height: 30px;
@@ -226,7 +226,7 @@ a {
   user-select: none;
 }
 
-#increase-btn:active,#decrease-btn:active {
+.increase-btn:active,.decrease-btn:active {
   transform: translate(2px,2px);
   box-shadow: none;
 }
