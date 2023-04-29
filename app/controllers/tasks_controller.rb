@@ -14,7 +14,6 @@ class TasksController < ApplicationController
         format.js
       end
     else
-      render 'index'
     end
   end
 

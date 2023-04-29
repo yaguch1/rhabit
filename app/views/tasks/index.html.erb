@@ -33,17 +33,18 @@
       <div class="add-task">
       <%= render partial: 'addtask', locals: { task: @task} %>
       </div>
+      
 
     </div>
 
     <div class="add-btn">
       <button class="open-form-button">add</button>
       <div class="modal-overlay">
-          <form class="modal-form" action="/tasks" data-remote="true" method="post">
+          <form class="modal-form" action="/tasks" data-remote="true" method="post" onsubmit="return false">
               <p>
               タスク <input type="text" name="task_name">
               </p>
-              <button to class="submit-button" , remote:true>登録</button>
+              <button type="button" class="submit-button">登録</button>
               <button type="button" class="close-button">閉じる</button>
           </form>
       </div> 
@@ -51,6 +52,7 @@
     
       
       <script>
+        
           const lifeBar = document.getElementById('life-bar')         // ライフバー
           const lifeMark = document.getElementById('life-mark')       // ライフの光部分
           const increaseBtn = document.getElementsByClassName('increase-btn') // + ボタン
@@ -99,5 +101,6 @@
           }
         
       </script>
+      
   </div>
 </div>

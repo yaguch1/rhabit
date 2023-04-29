@@ -8,15 +8,17 @@ var form = document.querySelector(".modal-form");
 var submitButton = document.querySelector(".submit-button");
 var closeButton = document.querySelector(".close-button");
 openFormButton.addEventListener("click", function() {
+    $('.add-btn').removeAttr('data-disable-with')
     form.reset();
     modalOverlay.style.display = "block";
 });
+
 submitButton.addEventListener("click", function() {
 
     $(function(){
       $.ajax({
-        url: '/',
-        type: 'GET',
+        url: '/tasks',
+        type: 'POST',
         dataType: 'json',
         async: true,
         data: {
