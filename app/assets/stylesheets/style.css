@@ -144,10 +144,17 @@ a {
   align-items: center;
 }
 
+.add-task-mass{
+  display: flex;
+  margin-bottom: 15px;
+}
+
+
 /* タスクゲージ */
 
 .tasks{
   width: 600px;
+  margin-top: 15px;
 }
 
 .task-mass{
@@ -251,6 +258,10 @@ button:hover {
   display: flex;
   flex-direction: column;
   margin-bottom: 100px;
+}
+
+a {
+  color: white;
 }
 
 /* 入力フォーム */

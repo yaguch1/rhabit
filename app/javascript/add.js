@@ -14,7 +14,7 @@ openFormButton.addEventListener("click", function() {
 });
 
 submitButton.addEventListener("click", function() {
-
+  var userId = gon.userid
     $(function(){
       $.ajax({
         url: '/tasks',
@@ -23,8 +23,14 @@ submitButton.addEventListener("click", function() {
         async: true,
         data: {
           task_name: document.querySelector('input[type=text][name=task_name]').value,
+          user_id: (userId)
         },
-      });
+      })
+      .done(function(data){
+        var nesting = $('<div class="add-task-mass">').append('<div class="decrease-btn">-</div>', '<div id="task-title">'+ data.task_name +'</div>', '<div class="increase-btn">+</div>')
+        $('.add-task').append(nesting)
+        document.querySelector(`[name='task_name']`).value = ''
+      })
     });
 });
 

@@ -17,11 +17,14 @@ window.addEventListener('load', function(){
         const lifeBar = document.getElementById('life-bar')         // ライフバー
         const lifeMark = document.getElementById('life-mark')       // ライフの光部分
         const increaseBtn = document.getElementsByClassName('increase-btn') // + ボタン
+        var my_audio = new Audio("/assets/btn.mp3");
         for(i=0;i<increaseBtn.length;i++){
           increaseBtn[i].onclick = function () {
           alterLife( 10 )
           count_value += 1;
-          count_disp.innerHTML = count_value;
+          count_disp.innerHTML = Math.floor((count_value)/10);
+          my_audio.currentTime = 0;
+          my_audio.play();
          } 
         }
         const decreaseBtn = document.getElementsByClassName('decrease-btn') // - ボタン
@@ -29,7 +32,9 @@ window.addEventListener('load', function(){
           decreaseBtn[i].onclick = function () {
             alterLife( -10 )
           count_value -= 1;
-          count_disp.innerHTML = count_value;
+          count_disp.innerHTML = Math.floor((count_value)/10);
+          my_audio.currentTime = 0;
+          my_audio.play();
          } 
         }
 
@@ -50,12 +55,10 @@ window.addEventListener('load', function(){
                     lifeMark.style.visibility = 'hidden'
                 }, 300)
             } else {
-                // 算出の結果 100 を超過した場合
+                // 算出の結果 100 以上になった場合
                 if ( life > 100 ) {
-                    life = 100
+                    life = 0
                 }
-                // 光部分を表示する
-                lifeMark.style.visibility = 'visible'
             }
             // スタイル(幅)を更新する
             lifeBar.style.width = life + "%"
