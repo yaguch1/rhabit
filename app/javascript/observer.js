@@ -56,14 +56,35 @@ window.addEventListener('load', function(){
                 }, 300)
             } else {
                 // 算出の結果 100 以上になった場合
-                if ( life > 100 ) {
+                if ( life >= 100 ) {
                     life = 0
                 }
             }
             // スタイル(幅)を更新する
             lifeBar.style.width = life + "%"
         }
+        const box = document.getElementById("life-bar");
 
+        // ページが読み込まれたときに、保存されたデータがあれば取得する
+        if (localStorage.getItem("boxStyles")) {
+          const boxStyles = JSON.parse(localStorage.getItem("boxStyles"));
+          Object.keys(boxStyles).forEach((property) => {
+            box.style[property] = boxStyles[property];
+          });
+        }
+        
+        // スタイルが変更されたときに、変更されたプロパティを保存する
+        function saveStyle(event) {
+          const propertyName = event.propertyName;
+          const propertyValue = box.style[propertyName];
+          const boxStyles = JSON.parse(localStorage.getItem("boxStyles")) || {};
+          boxStyles[propertyName] = propertyValue;
+          localStorage.setItem("boxStyles", JSON.stringify(boxStyles));
+        }
+        
+        // スタイルの変化を監視する
+        box.addEventListener("transitionend", saveStyle);
+        
       };
   }
   //ターゲット要素をDOMで取得

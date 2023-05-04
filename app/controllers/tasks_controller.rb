@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def index
     gon.userid = current_user.id
+    
     @tasks = Task.where(user_id: current_user.id)
     @task = params[:task]
   end

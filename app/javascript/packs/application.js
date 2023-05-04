@@ -8,6 +8,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("add")
 require("observer")
+require("autosave")
 
 //= require jquery
 //= require rails-ujs
