@@ -38,8 +38,13 @@ window.addEventListener('load', function(){
          } 
         }
 
-        let life =   0                                              // ライフ初期値
-        lifeBar.style.width = "0%"                                  // ライフ初期幅
+        var data = localStorage.getItem("boxStyles");
+        var parsedData = JSON.parse(data);
+        var width = parseFloat(parsedData.width);
+        const defaultValue = 0
+        const lifeValue = width || defaultValue
+        let life = lifeValue                               // ライフ初期値
+        lifeBar.style.width = "0%"                         // ライフ初期幅
         var count_value = 0
         var count_disp = document.getElementById("coins"); 
     
