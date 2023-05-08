@@ -58,3 +58,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'gon'
+
+group :production do
+  gem 'pg'
+end

@@ -2,11 +2,13 @@
 <div class="main-view">
   <div class="upper-contents">
     <div class="rabbit-form">
-      <%= image_tag 'rabbit.png' %>
+      <%= image_tag 'rabbit.gif' %>
     </div>
     <div class="status-form">
       <div class="user-name"><%= current_user.nickname %></div>
-      <div id="coins">0</div>
+      <div class="gem">
+        <%= image_tag 'gem.png' %><div id="coins">0</div>
+      </div>
       <div class="gacha">ガチャを回す</div>
       <div class="clothes">アイテム</div>
       <div class="friends">フレンド</div>
@@ -25,11 +27,11 @@
     <div class="task">
       <% @tasks.each do |task| %>
       <div class="task-mass-<%= task.id %>" style="display:flex; margin-bottom: 15px;">
-          <div class="decrease-btn">-</div>
+          <div class="decrease-btn">▼</div>
           <div id="task-title">
             <%= link_to task.task_name, task_path(task.id), method: :delete, remote: true %>
           </div>
-          <div class="increase-btn">+</div>
+          <div class="increase-btn">▲</div>
       </div>
       <% end %>
 
@@ -39,7 +41,7 @@
     </div>
 
     <div class="add-btn">
-      <button class="open-form-button">add</button>
+      <button class="open-form-button">Add</button>
       <div class="modal-overlay">
           <form class="modal-form" action="/tasks" data-remote="true" method="post" onsubmit="return false">
               <p>
@@ -127,6 +129,8 @@ if (localStorage.getItem("boxStyles")) {
 function saveStyle(event) {
   const propertyName = event.propertyName;
   const propertyValue = box.style[propertyName];
+  const a = parseFloat(propertyValue);
+  console.log(a)
   const boxStyles = JSON.parse(localStorage.getItem("boxStyles")) || {};
   boxStyles[propertyName] = propertyValue;
   localStorage.setItem("boxStyles", JSON.stringify(boxStyles));
