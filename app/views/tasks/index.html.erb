@@ -65,8 +65,10 @@
             alterLife( 10 )
             count_value += 1;
             count_disp.innerHTML = Math.floor((count_value)/10);
-            my_audio.currentTime = 0;
+            my_audio.load();
+            my_audio.addEventListener('canplaythrough', function() {
             my_audio.play();
+          });
            } 
           }
           const decreaseBtn = document.getElementsByClassName('decrease-btn') // - ボタン
