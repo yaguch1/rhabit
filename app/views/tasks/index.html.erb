@@ -56,7 +56,6 @@
       
       <script>
         
-        window.addEventListener('load', function(){
           const lifeBar = document.getElementById('life-bar')         // ライフバー
           const lifeMark = document.getElementById('life-mark')       // ライフの光部分
           const increaseBtn = document.getElementsByClassName('increase-btn') // + ボタン
@@ -82,7 +81,7 @@
           }
 
           var data = localStorage.getItem("boxStyles");
-          var parsedData = JSON.parse(data);
+          var parsedData = JSON.parse(data) || {width: 0};
           var width = parseFloat(parsedData.width);
           const defaultValue = 0
           const lifeValue = width || defaultValue
@@ -129,8 +128,7 @@ if (localStorage.getItem("boxStyles")) {
 function saveStyle(event) {
   const propertyName = event.propertyName;
   const propertyValue = box.style[propertyName];
-  const a = parseFloat(propertyValue);
-  console.log(a)
+
   const boxStyles = JSON.parse(localStorage.getItem("boxStyles")) || {};
   boxStyles[propertyName] = propertyValue;
   localStorage.setItem("boxStyles", JSON.stringify(boxStyles));
@@ -140,7 +138,7 @@ function saveStyle(event) {
 // スタイルの変化を監視する
 box.addEventListener("transitionend", saveStyle);
 
-})
+
       </script>
 
   </div>
