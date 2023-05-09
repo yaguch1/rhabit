@@ -56,7 +56,7 @@
       
       <script>
         
-        
+        window.addEventListener('load', function(){
           const lifeBar = document.getElementById('life-bar')         // ライフバー
           const lifeMark = document.getElementById('life-mark')       // ライフの光部分
           const increaseBtn = document.getElementsByClassName('increase-btn') // + ボタン
@@ -140,7 +140,7 @@ function saveStyle(event) {
 // スタイルの変化を監視する
 box.addEventListener("transitionend", saveStyle);
 
-
+})
       </script>
 
   </div>
