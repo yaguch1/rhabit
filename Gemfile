@@ -58,6 +58,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'gon'
+gem 'audiojs-rails'
 
 group :production do
   gem 'pg'

@@ -27,12 +27,20 @@
     <div class="task">
       <% @tasks.each do |task| %>
       <div class="task-mass-<%= task.id %>" style="display:flex; margin-bottom: 15px;">
+        <%= audio_tag("btn.mp3",id:"audio") %>
           <div class="decrease-btn">▼</div>
           <div id="task-title">
             <%= link_to task.task_name, task_path(task.id), method: :delete, remote: true %>
           </div>
           <div class="increase-btn">▲</div>
       </div>
+      <script>
+        document.querySelector('.decrease-btn').onclick = function () {
+        document.querySelector("#audio").play();}
+        document.querySelector('.increase-btn').onclick = function () {
+        document.querySelector("#audio").play();
+        }
+      </script>
       <% end %>
 
       <div class="add-task"></div>
@@ -52,33 +60,27 @@
           </form>
       </div> 
     </div>
-    
+    <%= audio_tag 'btn.mp3' %>
+
       
       <script>
-        
-          const lifeBar = document.getElementById('life-bar')         // ライフバー
-          const lifeMark = document.getElementById('life-mark')       // ライフの光部分
-          const increaseBtn = document.getElementsByClassName('increase-btn') // + ボタン
-          var my_audio = new Audio("/assets/btn.mp3");
+
+          const lifeBar = document.getElementById('life-bar')
+          const lifeMark = document.getElementById('life-mark')
+          const increaseBtn = document.getElementsByClassName('increase-btn')
           for(i=0;i<increaseBtn.length;i++){
             increaseBtn[i].onclick = function () {
             alterLife( 10 )
             count_value += 1;
             count_disp.innerHTML = Math.floor((count_value)/10);
-            my_audio.load();
-            my_audio.addEventListener('canplaythrough', function() {
-            my_audio.play();
-          });
            } 
           }
-          const decreaseBtn = document.getElementsByClassName('decrease-btn') // - ボタン
+          const decreaseBtn = document.getElementsByClassName('decrease-btn')
           for(i=0;i<decreaseBtn.length;i++){
             decreaseBtn[i].onclick = function () {
               alterLife( -10 )
             count_value -= 1;
             count_disp.innerHTML = Math.floor((count_value)/10);
-            my_audio.currentTime = 0;
-            my_audio.play();
            } 
           }
 
@@ -87,11 +89,10 @@
           var width = parseFloat(parsedData.width);
           const defaultValue = 0
           const lifeValue = width || defaultValue
-          let life = lifeValue                               // ライフ初期値
-          lifeBar.style.width = "0%"                         // ライフ初期幅
+          let life = lifeValue         
+          lifeBar.style.width = "0%"       
           var count_value = 0
           var count_disp = document.getElementById("coins"); 
-
           
       
           // *** ライフ変更処理 ***
