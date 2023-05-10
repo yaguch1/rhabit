@@ -25,22 +25,15 @@
     </div>
 
     <div class="task">
+      <%= audio_tag("btn.mp3",id:"audio") %>
       <% @tasks.each do |task| %>
       <div class="task-mass-<%= task.id %>" style="display:flex; margin-bottom: 15px;">
-        <%= audio_tag("btn.mp3",id:"audio") %>
           <div class="decrease-btn">▼</div>
           <div id="task-title">
             <%= link_to task.task_name, task_path(task.id), method: :delete, remote: true %>
           </div>
           <div class="increase-btn">▲</div>
       </div>
-      <script>
-        document.querySelector('.decrease-btn').onclick = function () {
-        document.querySelector("#audio").play();}
-        document.querySelector('.increase-btn').onclick = function () {
-        document.querySelector("#audio").play();
-        }
-      </script>
       <% end %>
 
       <div class="add-task"></div>
@@ -60,8 +53,6 @@
           </form>
       </div> 
     </div>
-    <%= audio_tag 'btn.mp3' %>
-
       
       <script>
 
@@ -73,6 +64,7 @@
             alterLife( 10 )
             count_value += 1;
             count_disp.innerHTML = Math.floor((count_value)/10);
+            document.querySelector("#audio").play();
            } 
           }
           const decreaseBtn = document.getElementsByClassName('decrease-btn')
@@ -81,6 +73,7 @@
               alterLife( -10 )
             count_value -= 1;
             count_disp.innerHTML = Math.floor((count_value)/10);
+            document.querySelector("#audio").play();
            } 
           }
 
