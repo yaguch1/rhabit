@@ -7,7 +7,7 @@
     <div class="status-form">
       <div class="user-name"><%= current_user.nickname %></div>
       <div class="gem">
-        <%= image_tag 'gem.png' %><div id="coins">&nbsp;0</div>
+        <%= image_tag 'gem.png' %>&nbsp;<div id="coins">0</div>
       </div>
       <div class="gacha">
         <%= audio_tag("coin.mp3",id:"audio2") %>
@@ -18,7 +18,8 @@
         <div id="modal" class="modal">
           <div class="modal-content">
               <div class="modal-body">
-                  <input type="button" id="closeBtn" value="✕"> 
+                  <input type="button" id="closeBtn" value="             ✕">
+                  <div class=item-img><img id="resultImage" src="" alt="Result Image"></div>
               </div>
           </div>
       </div>

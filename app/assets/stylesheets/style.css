@@ -34,8 +34,18 @@ a {
   color: #3b4043;
 }
 
-/* ヘッダー */
+/* device関係 */
 
+h2{
+  font-family: 'DotGothic16', sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+}
+
+
+/* ヘッダー */
 .header {
   background-color: #ffffff;
   margin-bottom: 70px;
@@ -140,6 +150,7 @@ img{
 
 .gem{
   display: flex;
+  margin-bottom: 10px;
 }
 
 .status-form{
@@ -150,6 +161,22 @@ img{
   font-weight: bold;
   font-size: 20px;
   color: dimgrey;
+}
+
+.user-name{
+  margin-bottom: 10px;
+}
+
+.gacha{
+  margin-bottom: 10px;
+}
+
+.clothes{
+  margin-bottom: 10px;
+}
+
+.friends{
+  margin-bottom: 10px;
 }
 
 .lower-contents{
@@ -190,7 +217,6 @@ input[type="button"]:hover {
 .gacha1{
   display: flex;
 }
-
 
 /* タスクゲージ */
 
@@ -347,18 +373,40 @@ a {
   width: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.5);
-  }
+}
   
-  .modal-content{
+.modal-content{
   position: fixed;
   left: 0;
   right: 0;
   margin: auto;
   top: 100px;
   background-color: white;
-  width: 500px;
-  height: 500px;
+  width: 200px;
+  height: 200px;
+}
+
+.modal-body{
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+.item-img{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+@keyframes fade{
+  0%{
+    opacity: 0;
   }
+  100%{
+    opacity: 1;
+  }
+}
 
 /* フッター */
 .footer {

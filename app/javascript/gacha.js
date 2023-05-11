@@ -1,6 +1,13 @@
 window.addEventListener('load', function(){
+  const imagePaths = [
+    './assets/ribbon.png', // 大当たり
+    './assets/ribbon.png', // 当たり
+    './assets/ribbon.png', // はずれ
+  ];
+
   var btn = document.getElementById('btn');
   var modal = document.getElementById('modal');
+  var resultImage = modal.querySelector('#resultImage');
   
   btn.addEventListener('click', function() {
     modal.style.display = 'block';
@@ -40,16 +47,15 @@ window.addEventListener('load', function(){
       
       // 実行
       const config = getConfig();
-      console.log(gachaRun(config));
+      const gachaResult = gachaRun(config);
+      console.log(gachaResult); 
+      const imageIndex = config.findIndex(item => item.id === gachaResult.id);
+      resultImage.src = imagePaths[imageIndex];
+  });
       
-      })
-
-
   var closeBtn = document.getElementById('closeBtn');
 
-closeBtn.addEventListener('click', function() {
-  modal.style.display = 'none';
-})
-  
-
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
   });
+});
