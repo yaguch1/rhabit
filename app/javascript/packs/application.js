@@ -9,6 +9,7 @@ require("channels")
 require("add")
 require("observer")
 require("autosave")
+require("gacha")
 
 //= require jquery
 //= require rails-ujs

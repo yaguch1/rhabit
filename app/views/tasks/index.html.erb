@@ -7,9 +7,22 @@
     <div class="status-form">
       <div class="user-name"><%= current_user.nickname %></div>
       <div class="gem">
-        <%= image_tag 'gem.png' %><div id="coins">0</div>
+        <%= image_tag 'gem.png' %><div id="coins">&nbsp;0</div>
       </div>
-      <div class="gacha">ガチャを回す</div>
+      <div class="gacha">
+        <%= audio_tag("coin.mp3",id:"audio2") %>
+        <div class="gacha1">
+        <%= image_tag 'gacha.png'%>
+        <input type="button" id="btn" value='ガチャを回す'>
+        </div>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <input type="button" id="closeBtn" value="✕"> 
+              </div>
+          </div>
+      </div>
+      </div>
       <div class="clothes">アイテム</div>
       <div class="friends">フレンド</div>
     </div>
@@ -25,7 +38,7 @@
     </div>
 
     <div class="task">
-      <%= audio_tag("btn.mp3",id:"audio") %>
+      <%= audio_tag("btn.mp3",id:"audio1") %>
       <% @tasks.each do |task| %>
       <div class="task-mass-<%= task.id %>" style="display:flex; margin-bottom: 15px;">
           <div class="decrease-btn">▼</div>
@@ -64,7 +77,7 @@
             alterLife( 10 )
             count_value += 1;
             count_disp.innerHTML = Math.floor((count_value)/10);
-            document.querySelector("#audio").play();
+            document.querySelector("#audio1").play();
            } 
           }
           const decreaseBtn = document.getElementsByClassName('decrease-btn')
@@ -73,7 +86,7 @@
               alterLife( -10 )
             count_value -= 1;
             count_disp.innerHTML = Math.floor((count_value)/10);
-            document.querySelector("#audio").play();
+            document.querySelector("#audio1").play();
            } 
           }
 

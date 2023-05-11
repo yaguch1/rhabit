@@ -27,7 +27,7 @@ submitButton.addEventListener("click", function() {
         },
       })
       .done(function(data){
-        var nesting = $('<div class="add-task-mass">').append('<div class="decrease-btn">-</div>', '<div id="task-title">'+ data.task_name +'</div>', '<div class="increase-btn">+</div>')
+        var nesting = $('<div class="add-task-mass">').append('<div class="decrease-btn">▼</div>', '<div id="task-title">'+ data.task_name +'</div>', '<div class="increase-btn">▲</div>')
         $('.add-task').append(nesting)
         document.querySelector(`[name='']`).value = ''
       })

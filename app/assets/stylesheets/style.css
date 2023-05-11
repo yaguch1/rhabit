@@ -41,6 +41,7 @@ a {
   margin-bottom: 70px;
   padding: 20px 0;
   border-bottom: 1px solid #b0c4de;
+  font-family: 'DotGothic16', sans-serif;
 }
 .inner {
   width: 1024px;
@@ -143,7 +144,12 @@ img{
 
 .status-form{
   margin-top: 25px;
-  margin-right: 200px;
+  margin-right: 150px;
+  font-family: 'DotGothic16', sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 20px;
+  color: dimgrey;
 }
 
 .lower-contents{
@@ -159,12 +165,41 @@ img{
   margin-bottom: 15px;
 }
 
+input[type="button"]{
+  background-color: #ffffff;
+  font-family: 'DotGothic16', sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 20px;
+  color: dimgrey;
+  border: none;
+}
+
+input[type="button"]:hover {
+  /* マウスが載ったとき */
+  background-color: #ffffff;
+  font-family: 'DotGothic16', sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 20px;
+  color: dimgrey;
+  border: none;
+  opacity:0.5;
+}
+
+.gacha1{
+  display: flex;
+}
+
 
 /* タスクゲージ */
 
 .tasks{
   width: 600px;
   margin-top: 15px;
+  font-family: 'DotGothic16', sans-serif;
+  letter-spacing: 2px;
+  font-size: 18px;
 }
 
 .task-mass{
@@ -258,6 +293,9 @@ button {
   color: white;
   border: none;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-family: 'DotGothic16', sans-serif;
+  letter-spacing: 2px;
+  font-size: 12px;
 }
 
 button:hover {
@@ -298,6 +336,29 @@ a {
   border: 1px solid #888;
   background-color: white;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content{
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 100px;
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  }
 
 /* フッター */
 .footer {
@@ -353,3 +414,4 @@ a {
     width: 100%;
   }
 }
+
