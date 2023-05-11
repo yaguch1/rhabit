@@ -1,8 +1,8 @@
 window.addEventListener('load', function(){
   const imagePaths = [
-    './assets/ribbon.png', // 大当たり
+    './assets/crown.png', // 大当たり
     './assets/ribbon.png', // 当たり
-    './assets/ribbon.png', // はずれ
+    './assets/bone.png', // はずれ
   ];
 
   var btn = document.getElementById('btn');
@@ -17,9 +17,9 @@ window.addEventListener('load', function(){
       // ガチャデータを取得する
       function getConfig() {
         return [
-          { id: '大当たり', val: 1 },
-          { id: '当たり', val: 10 },
-          { id: 'はずれ', val: 89 },
+          { id: '大当たり', val: 10 },
+          { id: '当たり', val: 30 },
+          { id: 'はずれ', val: 60 },
         ];
       }
       
