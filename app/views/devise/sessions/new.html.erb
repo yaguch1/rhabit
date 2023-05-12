@@ -1,5 +1,4 @@
-<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'%>
-<h2>Log in</h2>
+<div class="main">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -10,7 +9,7 @@
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -21,8 +20,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: 'btn' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+</div>
