@@ -33,7 +33,7 @@ https://rhabit.onrender.com
 そこで、やるべきことを一覧機能で把握し、さらに追加機能によってモチベーションを維持するようなアプリを開発して、課題解決を図った。
 
 # 洗い出した要件
-要件定義シート（https://docs.google.com/spreadsheets/d/1cUkQ8MCpCki4fszdTFzLRlOoc-F9NgcgLQvAEgGdnGc/edit）
+要件定義シート　https://docs.google.com/spreadsheets/d/1cUkQ8MCpCki4fszdTFzLRlOoc-F9NgcgLQvAEgGdnGc/edit
 
 # 実装した機能についての画像やGIFおよびその説明
 ・タスク登録
