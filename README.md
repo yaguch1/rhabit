@@ -36,7 +36,7 @@ https://rhabit.onrender.com
 要件定義シート（https://docs.google.com/spreadsheets/d/1cUkQ8MCpCki4fszdTFzLRlOoc-F9NgcgLQvAEgGdnGc/edit）
 
 # 実装した機能についての画像やGIFおよびその説明
-![demo](https://gyazo.com/b1751c499f017a7d9ee267c791debc8e
+![demo](https://gyazo.com/b1751c499f017a7d9ee267c791debc8e)
 
 # 実装予定の機能
 アイテム一覧機能によって、獲得したアイテムを確認できるようにする。
