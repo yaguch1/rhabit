@@ -36,7 +36,17 @@ https://rhabit.onrender.com
 要件定義シート（https://docs.google.com/spreadsheets/d/1cUkQ8MCpCki4fszdTFzLRlOoc-F9NgcgLQvAEgGdnGc/edit）
 
 # 実装した機能についての画像やGIFおよびその説明
-![demo](https://gyazo.com/b1751c499f017a7d9ee267c791debc8e)
+・タスク登録
+![demo](https://gyazo.com/b1751c499f017a7d9ee267c791debc8e.gif)
+
+・タスク一覧
+![demo](https://gyazo.com/b130a5a51e10506d14e48dd9dc6bf4b2.gif)
+
+・タスク削除
+![demo](https://gyazo.com/5dc721a97192ee063e157e140561036a.gif)
+
+・ガチャ機能
+![demo](https://gyazo.com/d1f83355e79fa893cf7a62f3d30361ba.gif)
 
 # 実装予定の機能
 アイテム一覧機能によって、獲得したアイテムを確認できるようにする。
